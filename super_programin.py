@@ -7,3 +7,4 @@ data_name = sys.argv[1];
 
 data = np.loadtxt(data_name, skiprows=1)
 print data.shape
+asdasd

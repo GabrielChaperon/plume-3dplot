@@ -8,13 +8,22 @@ ax = fig.add_subplot(111, projection='3d')
 # data
 a = 2
 b = 1
-z = np.linspace(0, 1, 20)
+z = np.linspace(0, 1, 10)
 theta = np.linspace(0, 2 * np.pi, 20)
 z, theta = np.meshgrid(z,theta)
-x = a * 0.5 * z * np.ones(z.shape) * np.cos(theta)
-y = b * 0.5 * z * np.ones(z.shape) * np.sin(theta)
+n, m = z.shape
+x = z * np.ones(z.shape) * np.cos(theta)
+x[:,:m/2] *= a
+x[:,m/2:] *= b
 
-ax.autoscale(enable=False)
-ax.autoscale_view()
+y = z * np.ones(z.shape) * np.sin(theta)
+y[:,:m/2] *= b
+y[:,m/2:] *= a
+print n,m
+print x.shape
+print y.shape
+print z.shape
+# ax.autoscale(enable=False)
+# ax.autoscale_view()
 ax.plot_surface(x, z, y, color='b')
 plt.show()

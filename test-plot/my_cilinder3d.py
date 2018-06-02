@@ -6,14 +6,17 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
 # data
-z = np.linspace(0, 1, 20)
+xo = np.linspace(0, 1, 10)
 theta = np.linspace(0, 2 * np.pi, 20)
-z, theta = np.meshgrid(z,theta)
-x = np.cos(theta) + z
-y = np.sin(theta)
+xx = np.zeros([20,10])
+yy = np.zeros([20,10])
+zz = np.zeros([20,10])
+for j in xrange(len(xo)):
+ 	for i in xrange(len(theta)):
+ 	 	xx[i][j] = xo[j]
+ 	 	yy[i][j] = np.cos(theta[i])
+ 	 	zz[i][j] = np.sin(theta[i])
 
-ax.plot_surface(x, z, y, color='b')
-ax.set_xlim([-2,2])
-ax.set_ylim([-2,2])
-ax.set_zlim([-2,2])
+ax.plot_surface(xx, yy, zz, color='b')
+
 plt.show()

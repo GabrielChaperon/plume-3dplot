@@ -1,5 +1,6 @@
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
+from matplotlib import cm
 import numpy as np
 import sys
 
@@ -23,7 +24,7 @@ zz += zc * np.ones(xx.shape)
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(xx, yy, zz)
+ax.plot_surface(xx, yy, zz, facecolors=cm.jet(zz/np.amax(zz)))
 plt.show()
 
 	

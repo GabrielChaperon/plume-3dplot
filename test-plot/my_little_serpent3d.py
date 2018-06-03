@@ -51,10 +51,6 @@ for i in xrange(len(zc)):
 	A = np.dot(points, R_y(alphays[i]))
 	xx[:,i],yy[:,i],zz[:,i] = A[:,0]+xc[i],A[:,1]+yc[i],A[:,2]+zc[i]
 
-
-		
-
-
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 ax.plot(xc, yc, zc, 'r--')
@@ -63,5 +59,4 @@ lim = [-1.5,1.5]
 ax.set_xlim(lim)
 ax.set_ylim(lim)
 ax.set_zlim(lim)
-plt.show()
 plt.show()
